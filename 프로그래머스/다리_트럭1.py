@@ -14,12 +14,15 @@ b_list = [0] * b_len
 # i=4 :    [7,0,0,0] [4,5,6]
 # i=5 :    [0,0,0,4] [5,6]
 
-
-
-
 run = truck_weights.pop(0)
-for i in range(b_len, 0, -1):
-    b_list[b_len - i] = run
-    if i ==1 and i ==2 :
-          b_list[b_len - i+1] = 0
-print(b_list)
+
+def passing():
+    for i in range(b_len):
+        b_list[b_len - i-1] = run
+        if i >0:
+            b_list[b_len-i] = 0
+
+    print(b_list)
+    return
+
+passing()
