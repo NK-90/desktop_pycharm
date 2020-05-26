@@ -3,7 +3,7 @@ plays = [400,       600,   150,     2500, 500,      500     , 500  , 100  , 100]
 
 
 
-def solution(geres,plasys):
+def solution(geres,plays):
 
 
     s_list = sorted((set(geres)))
@@ -71,4 +71,8 @@ def solution(geres,plasys):
                         break
 
     return answer
+
+
+
+
 
