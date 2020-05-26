@@ -1,22 +1,27 @@
-priorities = [1,1,2,3,1,1,1]
+List = [1, 1, 9, 1, 1, 1]
+location = 0
 
-location = 4
+
+def solution(List,location):
+    Zist = [x for x in range(len(List))]
+    Aist = []
 
 
-def solution (priorities, location):
 
-    Zist = [x for x in range(len(priorities))]
-    k = max(priorities)
+    for i in range(10000):
 
-    for i in priorities:
-        priorities.append(priorities.pop(0))
-        Zist.append(Zist.pop(0))
-        if priorities[0] == k:
+        for j in List:
+            List.append(List.pop(0))
+            Zist.append(Zist.pop(0))
+            if List[0] == max(List):
+                List.pop(0)
+                Aist.append(Zist.pop(0))
+
+        if len(Zist) == 0:
             break
+    print(Aist)
+    print(Aist.index(location)+1)
+    return Aist.index(location)+1
 
 
-    answer = Zist.index(location) +1
-    print(answer)
-    return answer
-
-solution(priorities,location)
+solution(List,location)
