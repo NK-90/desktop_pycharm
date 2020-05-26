@@ -1,4 +1,4 @@
-heights = [3,9,9,3,5,7,2]
+# heights = [3,9,9,3,5,7,2]
 
 
 
@@ -16,5 +16,3 @@ def solution(heights):
     print(answer)
     return answer
 
-
-solution([3,9,9,3,5,7,2])
