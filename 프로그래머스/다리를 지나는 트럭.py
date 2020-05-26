@@ -1,6 +1,6 @@
-b_len = 4
-weight = 10
-trucks = [6,2,5,6]
+# b_len = 4
+# weight = 10
+# trucks = [6,2,5,6]
 
 
 
@@ -33,7 +33,6 @@ def solution(b_len, weight, trucks):
          else:
             bridge.append(0)
             b_sum -= bridge[0]
-         print(i,bridge,trucks,b_sum)
          if len(trucks) == 0:
              i += b_len
              break
@@ -42,7 +41,6 @@ def solution(b_len, weight, trucks):
 
 
 
-solution(b_len, weight, trucks)
 
 
 
