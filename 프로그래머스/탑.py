@@ -1,7 +1,6 @@
 # heights = [3,9,9,3,5,7,2]
 
 
-
 def solution(heights):
 
     reights = list(reversed(heights))
