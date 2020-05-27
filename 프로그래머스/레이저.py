@@ -1,30 +1,25 @@
 arr = '()(((()())(())()))(())'
+arr = arr.replace('()','L')
+
+
 
 
 Aist = list(arr)
 Zist = [z for z in range(len(Aist))]
-Bist = []
-Cist = []
-Dist = []
-Eist = []
-k = 0
-
-print(Zist)
-
-for i in range(len(Aist)):
-    if  Aist[i] == "(" and Aist[i+1] == ")":
-        k +=1
-        Bist.append(i-2*(k-1))
-
-for i in Bist:
-    Aist.pop(i)
-    Aist.pop(i)
-    Cist.append(Zist.pop(i))
-    Cist.append(Zist.pop(i))
-
-Bist=[]
-
-
-
 print(Aist)
 print(Zist)
+Bist =[]
+
+
+Aist =  ['L', '(+1', '(+1', '(+1', 'L', 'L', ')-1', '(+1', 'L', ')-1', 'L', ')-1', ')-1', '(', 'L', ')']
+Aist =  ['L', '(', '(', '(', 'L', 'L', ')', '(', 'L', ')', 'L', ')', ')', '(', 'L', ')']
+
+k=0
+for i,v in enumerate(Aist):
+    if v == '(':
+        k +=1
+    if v == ')':
+        k -=1
+    if k == 0:
+        Zist.pop(i)
+        Zist.
