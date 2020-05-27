@@ -1,23 +1,12 @@
-arr = '()(((()())(())()))(())'
-Aist = list(arr)
-Zist = [z for z in range(len(Aist))]
-Bist = []
+
+Aist =  ['L', '(', '(', '(', 'L', 'L', ')', '(', 'L', ')', 'L', ')', ')', '(', 'L', ')']
 
 
-k = 0
-for i in range(12):
-    while Aist[i] == "(" and Aist[i+1] == ")":
-          k +=1
-          Aist.pop(i-2*(k-1))
-          Aist.pop(i-2*(k-1))
-          break
-
-# ['(', '(', '(', ')', '(', ')', ')', ')', '(', ')']
-# ['(', '(', '(', ')', '(', ')', ')', ')', '(', '(', ')', ')']
-# ['(', '(', '(', '(', ')', ')', '(', ')', ')', ')', '(', '(', ')', ')']
-print(Aist)
-
-
-
+try:
+    for i in range(1000):
+       Aist.remove('L')
+except ValueError:
+    pass
 
 print(Aist)
+
