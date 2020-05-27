@@ -1,40 +1,47 @@
 
 arr = '()(((()())(())()))(())'
-arr = arr.replace('()','L')
-Aist = list(arr)
-Zist = [z for z in range(len(Aist))]
-Cist = []
-Dist = []
 
 
-Wist = [z for z in Zist if Aist[z] == 'L' ]
-Bist = [i for i in Aist if i != 'L']
-for i in Wist:
-    Zist.remove(i)
+def solution(arr):
+
+
+        ans = 0
+        Zist = [z for z in range(len(list(arr.replace('()','L'))))]
+        Cist = []
+        Dist = []
+
+
+        Wist = [z for z in [z for z in range(len(list(arr.replace('()','L'))))] if list(arr.replace('()','L'))[z] == 'L' ]
+        Bist = [i for i in list(arr.replace('()','L')) if i != 'L']
+        for i in Wist:
+            Zist.remove(i)
+
+
+        for i in range(200):
+            i = -1
+            try:
+                while True:
+                    i +=1
+                    if Bist[i] == '('and  Bist[i+1] == ')':
+                        Cist.append((Zist[i],Zist[i+1]))
+                        Dist.append((Zist[i],Zist[i+1]))
+            except:
+                pass
+
+
+            for i in range (len(Cist)):
+              Zist.remove(Cist[i][0])
+              Zist.remove(Cist[i][1])
+            Cist =[]
+            Bist = [b for b in  list(''.join(Bist).replace('()','L')) if b != 'L']
 
 
 
-Bist = ['(', '(', '(', ')', '(', ')', ')', ')', '(', ')']
-Zist = [ 1,   2,   3,   6,   7,   9,   11,  12,  13, 15 ]
+        ans += len(Dist)
+        for i in range(len(Wist)):
+            for j in range(len(Dist)):
+               if Dist[j][0] < Wist[i] and Wist[i] < Dist[j][1]:
+                   ans +=1
 
-for i in range(100):
-    i=-1
-    try:
-        while True:
-            i +=1
-            if Bist[i] == '('and  Bist[i+1] == ')':
-                Cist.append((Zist[i],Zist[i+1]))
-                Dist.append((Zist[i],Zist[i+1]))
-    except:
-        pass
-
-
-    for i in range (len(Cist)):
-      Zist.remove(Cist[i][0])
-      Zist.remove(Cist[i][1])
-    Cist =[]
-    Bist = [b for b in  list(''.join(Bist).replace('()','L')) if b != 'L']
-
-
-print(Wist)
-print(Dist)
+        print(ans)
+        return ans
