@@ -2,46 +2,48 @@
 arr = '()(((()())(())()))(())'
 
 
+
 def solution(arr):
 
-
+        arr = arr.replace('()','L')
+        Zist = [z for z in range(len(arr))]
+        Qist1 =[]
+        Qist2 =[]
         ans = 0
-        Zist = [z for z in range(len(list(arr.replace('()','L'))))]
-        Cist = []
-        Dist = []
+
+        Wist  = [i for i in Zist if arr[i] =='L']
+        Zist = [i for i in Zist if arr[i] !='L']
+        Aist  = [x for x in arr if x != 'L']
 
 
-        Wist = [z for z in [z for z in range(len(list(arr.replace('()','L'))))] if list(arr.replace('()','L'))[z] == 'L' ]
-        Bist = [i for i in list(arr.replace('()','L')) if i != 'L']
-        for i in Wist:
-            Zist.remove(i)
 
 
-        for i in range(200):
+        Aist = ['(', '(', '(', ')', '(', ')', ')', ')', '(', ')']
+        Zist = [ 1,   2 ,  3,   6,   7,   9,  11,  12,   13, 15 ]
+
+        for i in range(10000):
             i = -1
             try:
-                while True:
-                    i +=1
-                    if Bist[i] == '('and  Bist[i+1] == ')':
-                        Cist.append((Zist[i],Zist[i+1]))
-                        Dist.append((Zist[i],Zist[i+1]))
+                while i < 2:
+                    i+=1
+                    if Aist[i] == '(' and Aist[i+1] == ')':
+                            Aist.pop(i)
+                            Aist.pop(i)
+                            Qist1.append(Zist.pop(i))
+                            Qist2.append(Zist.pop(i))
+                            i-=1
             except:
                 pass
-
-
-            for i in range (len(Cist)):
-              Zist.remove(Cist[i][0])
-              Zist.remove(Cist[i][1])
-            Cist =[]
-            Bist = [b for b in  list(''.join(Bist).replace('()','L')) if b != 'L']
+            if len(Aist) == 0:
+                break
 
 
 
-        ans += len(Dist)
-        for i in range(len(Wist)):
-            for j in range(len(Dist)):
-               if Dist[j][0] < Wist[i] and Wist[i] < Dist[j][1]:
-                   ans +=1
 
-        print(ans)
+        for i in range(len(Qist1)):
+             for j in Wist:
+                if Qist1[i] < j < Qist2[i]:
+                    ans+=1
+        ans += len(Qist1)
+
         return ans
