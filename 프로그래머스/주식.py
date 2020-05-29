@@ -1,23 +1,35 @@
 
 
 
-pri = [2, 3, 4, 2, 3, 1 ,3 ,4 ,1, 2, 3, 4]
-ans = []
+pri = [2, 3, 2, 0, 1, 3, 1]
 
 
-for i in range(5):
-    try:
-          while True:
-            set = pri.pop(0) -1
-            r = pri.index(set) +1
-            ans.append(r)
-    except:
-         ans.append(len(pri))
-    if ans[-1] == 0:
-        break
+
+def solution(pri):
 
 
-print(ans)
+    ans = []
+    check =0
+    for i,v in enumerate(pri):
+        for j in range(i+1,len(pri),1):
+            check =0
+            if v > pri[j]:
+                ans.append(j-i)
+                check +=1
+                break
+        if check == 0:
+            ans.append(len(pri)-i-1)
+
+    if len(ans) != len(pri):
+        ans.append(0)
+    return ans
+
+solution(pri)
+
+
+
+
+
 
 
 
