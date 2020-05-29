@@ -1,5 +1,6 @@
 
 
+
 def solution(arr):
     arr = arr.replace('()', 'L')
     Aist = list(arr)
