@@ -1,9 +1,9 @@
-# List = [1, 1, 9, 1, 1, 1]
+List = [1, 1, 9, 1, 1, 1]
 # Zist = [0, 1, 2, 3, 4, 5]
-# location = 2
+location = 3
 
 
-def solution(List,locatino):
+def solution(List,location):
     Zist = [x for x in range(len(List))]
     Aist = []
 
@@ -17,5 +17,8 @@ def solution(List,locatino):
             List.append(List.pop(0))
             Zist.append(Zist.pop(0))
 
+    print(Aist.index(location))
     return Aist.index(location) + 1
 
+
+solution(List,location)
